@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RISC-V Rocket</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html,
+            body {
+                height: 100%;
+            }
+            body {
+                font-family: "Fredoka", system-ui, sans-serif;
+                background: #ffffff;
+                color: #21243d;
+                min-height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 44px 24px 60px;
+            }
+            header {
+                text-align: center;
+                margin-bottom: 6px;
+            }
+            header h1 {
+                font-weight: 600;
+                font-size: clamp(24px, 3.6vw, 38px);
+                letter-spacing: 0.2px;
+            }
+            header p {
+                font-weight: 400;
+                font-size: clamp(14px, 1.5vw, 17px);
+                color: #6b7088;
+                margin-top: 6px;
+                max-width: 620px;
+            }
+
+            .scene {
+                display: flex;
+                flex-wrap: wrap;
+                gap: clamp(30px, 7vw, 110px);
+                align-items: flex-start;
+                justify-content: center;
+                margin-top: 40px;
+            }
+            .pad {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .cap {
+                margin-top: 22px;
+                font-weight: 500;
+                font-size: 16px;
+                text-align: center;
+                color: #21243d;
+                background: #f4f5f8;
+                border: 1px solid #e3e5ec;
+                padding: 8px 20px;
+                border-radius: 999px;
+            }
+            .cap b {
+                font-weight: 600;
+            }
+
+            /* rocketwrap is a fixed-aspect box; logo overlays positioned by % match viewBox 300x800 */
+            .rocketwrap {
+                position: relative;
+                width: clamp(230px, 28vw, 310px);
+                aspect-ratio: 300/800;
+            }
+            .rocketwrap svg.shell {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                overflow: visible;
+            }
+            .logos {
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+            }
+            .logos img {
+                position: absolute;
+                transform: translate(-50%, -50%);
+                object-fit: contain;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>The Open-Source Rocket 🚀</h1>
+            <p>Built on open foundations — now fueled by RISC-V for the next leg of the journey.</p>
+        </header>
+
+        <div class="scene">
+            <!-- ============ ROCKET 1 : the crew ============ -->
+            <div class="pad">
+                <div class="rocketwrap">
+                    <svg
+                        class="shell"
+                        viewBox="0 0 300 800"
+                        aria-label="Rocket holding open-source logos"
+                    >
+                        <defs>
+                            <linearGradient id="nose1" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#ff8278" />
+                                <stop offset="1" stop-color="#ff6b5e" />
+                            </linearGradient>
+                        </defs>
+                        <!-- fins -->
+                        <path
+                            d="M66 510 C 26 555 14 615 22 672 L 70 644 L 70 526 Z"
+                            fill="#ff6b5e"
+                            stroke="#21243d"
+                            stroke-width="6"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M234 510 C 274 555 286 615 278 672 L 230 644 L 230 526 Z"
+                            fill="#ff6b5e"
+                            stroke="#21243d"
+                            stroke-width="6"
+                            stroke-linejoin="round"
+                        />
+                        <!-- nozzle -->
+                        <path
+                            d="M122 766 L 178 766 L 192 814 L 108 814 Z"
+                            fill="#d9d4c7"
+                            stroke="#21243d"
+                            stroke-width="6"
+                            stroke-linejoin="round"
+                        />
+                        <!-- body -->
+                        <path
+                            d="M150 16 C 200 80 234 148 234 212 L 234 690 C 234 730 214 756 188 770 L 112 770 C 86 756 66 730 66 690 L 66 212 C 66 148 100 80 150 16 Z"
+                            fill="#fbfaf6"
+                            stroke="#21243d"
+                            stroke-width="6"
+                        />
+                        <!-- nose color -->
+                        <path
+                            d="M150 16 C 200 80 234 148 234 212 L 66 212 C 66 148 100 80 150 16 Z"
+                            fill="url(#nose1)"
+                        />
+                        <line
+                            x1="66"
+                            y1="212"
+                            x2="234"
+                            y2="212"
+                            stroke="#21243d"
+                            stroke-width="6"
+                        />
+                    </svg>
+                    <div class="logos">
+                        <img src="assets/arduino.png" style="left: 36.7%; top: 35%; width: 20%" />
+                        <img src="assets/linux.png" style="left: 63.3%; top: 35%; width: 16%" />
+                        <img src="assets/zephyr.png" style="left: 37%; top: 47.25%; width: 25%" />
+                        <img
+                            src="assets/kubernetes.png"
+                            style="left: 63.3%; top: 47.25%; width: 18%"
+                        />
+                        <img src="assets/rust.png" style="left: 36.7%; top: 59.5%; width: 24%" />
+                        <img src="assets/python.png" style="left: 63.3%; top: 59.5%; width: 17%" />
+                        <img src="assets/c.png" style="left: 50%; top: 69.8%; width: 17%" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============ ROCKET 2 : fueled by RISC-V ============ -->
+            <div class="pad">
+                <div class="rocketwrap" style="margin-bottom: 120px">
+                    <svg
+                        class="shell"
+                        viewBox="0 0 300 800"
+                        aria-label="Rocket fueled by RISC-V, taking off"
+                    >
+                        <defs>
+                            <linearGradient id="nose2" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#ff8278" />
+                                <stop offset="1" stop-color="#ff6b5e" />
+                            </linearGradient>
+                            <radialGradient id="fcore" cx="50%" cy="16%" r="80%">
+                                <stop offset="0" stop-color="#fff7d6" />
+                                <stop offset="0.45" stop-color="#ffd54a" />
+                                <stop offset="1" stop-color="#ff8a3d" />
+                            </radialGradient>
+                            <linearGradient id="fout" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#ffb14a" />
+                                <stop offset="1" stop-color="#ff5d3a" />
+                            </linearGradient>
+                        </defs>
+                        <!-- static exhaust flames -->
+                        <g transform="translate(150 812)">
+                            <path
+                                d="M0 0 C 44 28 38 118 0 162 C -38 118 -44 28 0 0 Z"
+                                fill="url(#fout)"
+                            />
+                            <path
+                                d="M0 4 C 25 28 23 88 0 124 C -23 88 -25 28 0 4 Z"
+                                fill="url(#fcore)"
+                            />
+                        </g>
+                        <!-- fins -->
+                        <path
+                            d="M66 510 C 26 555 14 615 22 672 L 70 644 L 70 526 Z"
+                            fill="#ff6b5e"
+                            stroke="#21243d"
+                            stroke-width="6"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M234 510 C 274 555 286 615 278 672 L 230 644 L 230 526 Z"
+                            fill="#ff6b5e"
+                            stroke="#21243d"
+                            stroke-width="6"
+                            stroke-linejoin="round"
+                        />
+                        <!-- nozzle -->
+                        <path
+                            d="M122 766 L 178 766 L 192 814 L 108 814 Z"
+                            fill="#d9d4c7"
+                            stroke="#21243d"
+                            stroke-width="6"
+                            stroke-linejoin="round"
+                        />
+                        <!-- body -->
+                        <path
+                            d="M150 16 C 200 80 234 148 234 212 L 234 690 C 234 730 214 756 188 770 L 112 770 C 86 756 66 730 66 690 L 66 212 C 66 148 100 80 150 16 Z"
+                            fill="#fbfaf6"
+                            stroke="#21243d"
+                            stroke-width="6"
+                        />
+                        <path
+                            d="M150 16 C 200 80 234 148 234 212 L 66 212 C 66 148 100 80 150 16 Z"
+                            fill="url(#nose2)"
+                        />
+                        <line
+                            x1="66"
+                            y1="212"
+                            x2="234"
+                            y2="212"
+                            stroke="#21243d"
+                            stroke-width="6"
+                        />
+                        <!-- fuel-tank divider -->
+                        <line
+                            x1="70"
+                            y1="616"
+                            x2="230"
+                            y2="616"
+                            stroke="#21243d"
+                            stroke-width="5"
+                            stroke-dasharray="2 9"
+                            stroke-linecap="round"
+                            opacity=".55"
+                        />
+                        <!-- RISC-V fuel panel -->
+                        <rect
+                            x="84"
+                            y="630"
+                            width="132"
+                            height="74"
+                            rx="14"
+                            fill="#ffffff"
+                            stroke="#21243d"
+                            stroke-width="4"
+                        />
+                    </svg>
+                    <div class="logos">
+                        <img src="assets/arduino.png" style="left: 36.7%; top: 35%; width: 20%" />
+                        <img src="assets/linux.png" style="left: 63.3%; top: 35%; width: 16%" />
+                        <img src="assets/zephyr.png" style="left: 37%; top: 47.25%; width: 25%" />
+                        <img
+                            src="assets/kubernetes.png"
+                            style="left: 63.3%; top: 47.25%; width: 18%"
+                        />
+                        <img src="assets/rust.png" style="left: 36.7%; top: 59.5%; width: 24%" />
+                        <img src="assets/python.png" style="left: 63.3%; top: 59.5%; width: 17%" />
+                        <img src="assets/c.png" style="left: 50%; top: 69.8%; width: 16%" />
+                        <img src="assets/riscv.png" style="left: 50%; top: 83.6%; width: 36%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
